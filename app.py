@@ -28,15 +28,11 @@ chain = LLMChain(
     memory=st.session_state.memory
 )
 
-
 user_input = st.text_input("Ask me anything:")
 
 if st.button("Send") and user_input:
     with st.spinner("Thinking..."):
         response = chain.run(input=user_input)
-    # st.session_state.memory.chat_memory.add_user_message(user_input)
-    # st.session_state.memory.chat_memory.add_ai_message(response)
-
 
 if st.session_state.memory.chat_memory.messages:
     st.subheader("Chat History")
